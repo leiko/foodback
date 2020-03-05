@@ -4,6 +4,7 @@
 <title>FoodBack</title>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		
 <script type="text/javascript">
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.search);
@@ -83,18 +84,26 @@ $(document).ready(function() {
     });
     
 });
-function backToDetail(){
-	window.parent.hideDetails();
+
+const sleep = (milliseconds) => {
+	  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
 	
+function backToDetail(){
+	
+	window.parent.hideDetails();	  			  					
+		
 }
 </script>
 </head>
-<body>
-	Restaurante: <span id="restaurantName"></span><br>
+<link rel="stylesheet" href="css/style.min.css">
 
-	<br><br>
-	Qual a sua preferencia:
-	<br>
+<body style="background-color: white" >
+
+<div class="pl-lg-5 ml-md-5">
+	<h3 class="mt-5"><span id="restaurantName"></span></h3>
+	<p>Qual a sua preferencia:</p>
+
 	<form id="preferenciasForm">
 	    <input id="restaurantId" name="restaurantId" style="display:none"></input>
 	
@@ -107,8 +116,8 @@ function backToDetail(){
 		<input type="radio" id="petfriendly" name="preference" value="petfriendly">
 		<label for="petfriendly">#petfriendly</label><br>
 				
-		<input type="radio" id="gluenfree" name="preference" value="gluenfree">
-		<label for="gluenfree">#gluenfree</label><br>
+		<input type="radio" id="glutenfree" name="preference" value="glutenfree">
+		<label for="gluenfree">#glutenfree</label><br>
 		
 		<input type="radio" id="restricaonozes" name="preference" value="restricaonozes"> 
 		<label for="restricaonozes">#restricaonozes</label><br>
@@ -118,38 +127,40 @@ function backToDetail(){
 		
      	<input type="radio" id="fit" name="preference" value="fit">
 		<label for="fit">#fit</label><br>
+		
+	    <input type="radio" id="intolerantelactose" name="preference" value="intolerantelactose">
+		<label for="intolerantelactose">#intolerantelactose</label><br>
 						
 		<input type="radio" id="outros" name="preference" value="outros">
 		<label for="outros">#outros</label><br>
 				
-		<br> A sua preferencia foi atendida? 
+		<br><p> A sua preferencia foi atendida?</p> 
 		<div>
 		<input type="radio" id="sim" name="satisfied" value="yes" checked><label for="sim">Sim</label> 
 		<input type="radio" id="nao" name="satisfied" value="no"><label for="nao">Nao</label> 
 		</div>
 		<br>
 		
-		<input type="submit" id="salvar1" name="salvar1" value="Salvar" /><br><br>
+		<input type="submit" id="salvar1" class="btn btn-primary btn-shadow btn-lg" name="salvar1" value="Salvar" /><br><br>
 	</form>
 	<span id="result1"></span>
-	
-	<br>
 	<br>
 	<form id="reviewForm">
 	    <input id="commentId" name="commentId" style="display:none"></input>
 	
-		Adicione um comentario ao seu feedback sobre o cardapio: 
-		<input type="text" id="comment" name="comment"></input>
-		<input type="submit" id="salvar2" name="salvar2" value="Enviar" />
+		<p>Adicione um comentario ao seu feedback sobre o cardapio:</p> 
+		<textarea id="comment" name="comment" rows="4" cols="50"></textarea ><br><br>
+		<input type="submit" id="salvar2" name="salvar2" value="Enviar" class="btn btn-primary btn-shadow btn-lg"/>
 	</form>
 	<span id="result2"></span>
-	
+	<br>
 	<br>
 	<form method="get" action="detail.html" onsubmit="backToDetail()">
-		<button type="submit">Voltar</button>		
+	    <input id="restaurantId" name="restaurantId" style="display:none"></input>
+		<button type="submit" class="btn btn-primary btn-shadow btn-lg">Voltar</button>		
 	</form>
 	
 
-
+</div>
 </body>
 </html>

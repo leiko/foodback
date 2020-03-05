@@ -12,36 +12,24 @@ window.onload = function () {
     }
 }
 </script>
-<body>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css">
+    
+<body style="background-color: white"> 
     <span id="id" style="display:none"></span>
-	<label for="nome" id="nome">Nome do restaurante: </label>
-	<span id="name"></span>
-	<br>
-	<label for="endereco" id="endereco">Endereco: </label>
-	<span id="address"></span>
-	<br>
-	<br>
-	<br> Resenhas:
-	<br>
-	<!-- 
-	<label for="preferencia" id="preferencia">Preferencias: </label>
-	<span id="preference"></span>
-	<br>
-	<label for="satisfeito" id="satisfeito">Atendeu as
-		expectativas? </label>
-	<span id="satisfied"></span>
-	<br>
-	<label for="comentario" id="comentario">Comentario: </label>
-	<span id="comment"></span>
-	<br>
-	 -->
-	<br>
-	    <p id="show-data"></p>
-	<br>
+
+					<div>
+                        <h3 class="mt-5"><span id="name"></span></h3>
+                        <p>Endereço: <span id="address"></span></p><br>
+                        <p id="show-data"></p>
+                        
+                    </div>    
+
+
 	<form id="feedbackForm" method="get" action="feedback.html">
 		<input name="restaurantId" type="hidden"></input>
-		<button type="submit" id="feedbackButton" >Feedback</button>		
+		<button type="submit" id="feedbackButton" class="btn btn-primary btn-shadow btn-lg">Feedback</button>	
 	</form>
 
 </body>
